@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3c.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<div align="center">
+		<p:panel header="PREDICTOR PICO Y PLACA" style="width:50%;">
+			<h:form id="frm">
+			<p:growl id="msg"/>
+				<p:panelGrid columns="2">
+					<p:outputLabel value="PLACA:" for="txtPlaca" />
+					<p:inputMask id="txtPlaca" value="#{predictorPicoPlacaControlador.predictorPicoPlacaBb.placa}" mask="aaa-9999" style="text-transform: uppercase;" required="true"/>
+
+					<p:outputLabel value="FECHA:" for="txtFecha" />
+					<p:row>
+						<p:inputMask id="txtFecha" value="#{predictorPicoPlacaControlador.predictorPicoPlacaBb.fecha}" mask="99/99/9999" required="true"/>
+						<p:outputLabel value="dd/mm/yyyy" />
+					</p:row>
+					<p:outputLabel value="HORA:" for="txtHora" />
+					<p:row>
+						<p:inputMask id="txtHora" value="#{predictorPicoPlacaControlador.predictorPicoPlacaBb.hora}" mask="99:99" required="true"/>
+						<p:outputLabel value="HH:mm" />
+					</p:row>
+				</p:panelGrid>
+				
+				<p:commandButton value="Validar" action="#{predictorPicoPlacaControlador.validar()}" update=":#{p:component('frm')}"/>	
+			</h:form>
+		</p:panel>
+	</div>
+</h:body>
+</html>
